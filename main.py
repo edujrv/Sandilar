@@ -13,6 +13,20 @@ async def on_message(message):
         return
         
     if message.content.startswith('$tony'):
-        await message.channel.send('tony es un pancho barbaro')
+        await message.channel.send('tony pancho barbaro')
+    
+    if message.content.startswith('$klan'):
+        await message.channel.send('y no escucha perro para tu cucha')
 
-client.run('ODc5NDg3NzI1NTUwNTkyMDQy.YSQcxQ.Dm_SRAd88mBzW_pstUpEDpcFWFM')
+    if message.content.startswith('$ricto'):
+        await message.channel.send('Lo siento homie')
+
+    if message.content.startswith('$autobardear'):
+        await message.channel.send(message.author.mention + ' es un un uachin')
+
+
+client.run(os.getenv('TOKEN'))
+
+
+
+
