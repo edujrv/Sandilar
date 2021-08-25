@@ -54,6 +54,7 @@ Asustatrenes
 Atonta
 Atontada
 Atontado
+Antonio Sanchez
 Atontao
 Atroplella platos
 Baballo
@@ -74,6 +75,7 @@ Bastardo
 Bebecharcos
 Bebesinsed
 Bellaco
+Belmaña
 Bergante
 Berzotas
 Besugo
@@ -721,6 +723,7 @@ Portugues
 Prea
 Pregonao
 Pringazorras
+Pringado
 Prosma
 Psifílico
 Pudrecolchones
@@ -728,6 +731,7 @@ Pusilanime
 Pusilánime
 Puta
 Putapénico
+Pantera Rosa
 Putos
 Putot
 Pánfilo
@@ -812,6 +816,7 @@ Tontolava
 Tontolculo
 Tontolhaba
 Tontoligo
+The Lost
 Tontoloscojones
 Tontopolla
 Tontoprofundo

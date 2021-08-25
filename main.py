@@ -2,7 +2,8 @@
 import discord
 import os
 import random
-from Horario import *
+from Anotacion import *
+from datetime import datetime
 #Fin imports
 
 #python3 -m pip install -U discord.py  SI SE ROMPE USAR ESE COMANDO PARA IMPORTAR PACKETES DISCORD
@@ -10,9 +11,56 @@ client = discord.Client()
 
 #Funciones
 def recordatorio_constructor(frase):
-    frase = frase.replace("$nh ","").split(";")
-    frase = frase.split(";")
+    frase = frase.replace("$na ","").split(";")
+#    frase = frase.split(";")
+    frase_final = ["?","?","?","?","?","?","?"]
+
+    fecha = frase[0].split("/")
+    desc = frase[-1]
+    hora = ["?","?"]
+    materia = "?"
+
+    if(len(fecha) == 1):
+        fecha.append(str(datetime.now().month))
+        fecha.append(str(datetime.now().year))
+    elif(len(fecha) == 2):
+        fecha.append(str(datetime.now().year))
+
+
+    if (len(frase) == 3):                 #Puede ser hora o materia
+        frase_aux = frase[1].split(":")
+        if(frase_aux[0].isnumeric()):       #Se trata de una hora
+            hora[0] = frase_aux[0]
+            if(len(frase_aux) == 1):        #Solo hora  
+                hora[1] = "00"
+            else:                           #hora y minuto
+                hora[1] = frase_aux[1]
+        else:                               #Es la materia
+            materia = frase[1]
     
+    if(len(frase) == 4):
+        frase_aux = frase[1].split(":")
+        hora[0] = frase_aux[0]
+        if(len(frase_aux) == 1):        #Solo hora  
+            hora[1] = "00"
+        else:                           #hora y minuto
+            hora[1] = frase_aux[1]
+        materia = frase[2]
+                                    
+    frase_final[0] = fecha[0]
+    frase_final[1] = fecha[1]
+    frase_final[2] = fecha[2]
+
+    frase_final[3] = hora[0]
+    frase_final[4] = hora[1]
+
+    frase_final[5] = materia.lower()
+
+    frase_final[6] = desc.lower()
+
+    print(frase_final)
+    
+
     
     '''
     dia = frase[0]
@@ -23,7 +71,7 @@ def recordatorio_constructor(frase):
     materia/curso = frase[5]  (opcional) -> No importa 
     descripcion = frase[6]
     '''
-    return frase
+    return frase_final
 
 def bardeo():
     file = open("insultos.txt")
@@ -52,7 +100,8 @@ async def on_message(message):
 
     mensaje = message.content.split(" ")
     if (mensaje[0] == "$tony"):
-        await message.channel.send('tony pancho barbaro')
+        await message.channel.send('tony es un bot y pancho barbaro')
+        await message.channel.send('https://media.discordapp.net/attachments/698233666601484379/880130562956853258/unknown.png')
 
     if (mensaje[0] == "$hater"):
         await message.channel.send('Segun paginas oficiales como Wikipedia y resultados analiticos de laboratorios de investigacion a nivel mundial, esta comprobado que '+message.mentions[0].mention+' es el mas hater')
@@ -60,7 +109,6 @@ async def on_message(message):
     if (mensaje[0] == "$klan"):
         await message.channel.send('Esto es una pelota, esto es un pelotudo!!')
         await message.channel.send('https://i.ytimg.com/vi/4fEm0agWpXA/maxresdefault.jpg')
-        await message.channel.send('https://img.redbull.com/images/c_fill,g_auto,w_860,h_1229/q_auto,f_auto/redbullcom/2020/11/5/xn1jqonq5eepwycucuxw/klan')
 
     if (mensaje[0] == "$ricto"):
         await message.channel.send('Lo siento homie')
@@ -68,17 +116,29 @@ async def on_message(message):
     if (mensaje[0] == "$autobardear"):
         await message.channel.send(message.author.mention + ' es un un uachin')
 
-    if (mensaje[0] == "$strike"):
-	    await message.channel.send('Que te pasa Strike?')
+    if (mensaje[0] == "$horario"):
+	    await message.channel.send('https://media.discordapp.net/attachments/821355545838485535/877535911309635624/unknown.png')
+
+    if(mensaje[0] == "$sandi"):
+      await message.channel.send('Este soy yo, bonito no?')
+      await message.channel.send('https://cdn5.dibujos.net/dibujos/pintados/201627/trozo-de-sandia-comida-frutas-10712724.jpg')
+
+    if(mensaje[0] == "$help"):
+      await message.channel.send('Te voy a dar una ayudita, puedes usarme con: \n```▁ ▂ ▄ ▅ ▆ ▇ █ 𝕃𝕀𝕊𝕋𝔸 𝔻𝔼 ℂ𝕆𝕄𝔸ℕ𝔻𝕆𝕊 █ ▇ ▆ ▅ ▄ ▂ ▁\n$tony\n$hater\n$klan ♥\n$ricto\n$autobardear\n$horario\n$sandi\n$celebrar\n$bardear\n$na```')
+
+    if(mensaje[0] == "$celebrar"):
+      await message.channel.send('¡¡A CELEBRAR!!')
+      await message.channel.send('https://i.pinimg.com/originals/c9/ae/85/c9ae85b4431228f0d59e2ab9e4515378.gif')
         
     if (mensaje[0] == "$bardear"):
         await message.channel.send(message.mentions[0].mention + " sos un " + bardeo())
     
-    if (mensaje[0] == "$nh"):
-        recordatorio_constructor(message.content)
+    if (mensaje[0] == "$na"):
+        frase = recordatorio_constructor(message.content)
           # $nh '"Descripcion"' '"Materia o Curso"'(opcional) 'Año-Mes-Día-Hora-Minutos' 
-        frase = message.content.replace("$nh ","")
-        frase = frase.split(";")
+        
+        #frase = message.content.replace("$nh ","")
+        #frase = frase.split(";")
         dia = frase[0]
         mes = frase[1]
         ano = frase[2]
@@ -86,9 +146,23 @@ async def on_message(message):
         minuto = frase[4]
         materia = frase[5]
         descripcion = frase[6]
+    
+        print("\n\n\n")
+        print(frase)
+
+        agendado = dia + "/" + mes + "/" + ano + " - "
+        if( not hora == '?'):
+            agendado += hora
+        if(not minuto == '?'):
+            agendado += ":"+minuto + " - "
+        if(not materia == '?'):
+            agendado += materia + " - "
+        agendado += descripcion
+
         
-        #await message.channel.send(desc[1]," ",desc[2])
-        await message.channel.send(dia + "/" + mes + "/" + ano + " - " + hora + ":" + minuto + " - " + materia + " - " + descripcion)
+        print(agendado)
+
+        await message.channel.send(agendado)
         
         #           dia     mes     ano     hora     materia     actividad
         #   $nh     05;     08;     2021;   15:00;  auditoria;   curso

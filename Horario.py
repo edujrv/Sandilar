@@ -1,26 +1,40 @@
-from datetime import date
-from datetime import datetime
-
 class Horario:
+
+    horario = [[ [[]],"?","?" ]]
+    #           dias-materia-profe
+    #           horas
+
+
     def __init__(self):
         print("Nuevo horario")
 
-    #def agregar_evento():
-        #descripcion = ""
-        #fecha = 
-        #Que reciba los datos del evento a hacer y llame a generar_anotacion
+    def agregar_horario(frase):
+        return
 
-    #def agregar_evento_academico():
-        #descripcion = ""
+    def set_dias():
+        return
+    def set_horas():
+        return
+    def set_materia():
+        return
+    def set_profe():
+        return
 
-        #new_date = datetime(2019, 2, 28, 10, 15, 00, 00000)
-        #Los argumentos serán: Año, Mes, Día, Hora, Minutos, Segundos, Milisegundos.
-        #https://codigofacilito.com/articulos/fechas-python
-
-        #materia_curso =
-        #Que reciba los datos del evento academico a hacer y llame a generar_anotacion
-
-    #def generar_anotacion():
-        #Recibe los datos que se quiere tener en la anotacion o el recordatorio
-
+    def get_dias():
+        return
+    def get_horas():
+        return
+    def get_materia():
+        return
+    def get_profe():
+        return
+        
+    def ver_horario():
+        return
+    def ver_proxima_clase():
+        return
+    def eliminar_horario(id):
+        return
+    def cambiar_fecha_hora(id,fecha,hora):
+        return
     
