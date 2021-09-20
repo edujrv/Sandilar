@@ -1,0 +1,1 @@
+Comando $na -> Si o si debe recibir una descripcion y este no debe admitir un solo numero, puede empezar con uno pero debe tener txt

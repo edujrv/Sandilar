@@ -1,4 +1,3 @@
-
 import Funciones 
 
 def evento(client):
@@ -20,16 +19,16 @@ def evento(client):
 
         elif (mensaje[0] == "$hater"):
             if(len(message.mentions) == 0):
-                await mandar_mensaje('Para hatear , tenes que tenera odio por alguien, mencionalo y lo destrozo perri')
+                await mandar_mensaje('Para hatear , tenes que tener odio por alguien, mencionalo y lo destrozo perri')
             else:
                 await mandar_mensaje(
                     'Segun paginas oficiales como Wikipedia y resultados analiticos de laboratorios de investigacion a nivel mundial, esta comprobado que ' + message.mentions[0].mention + ' es el mas hater')
               
                 
         elif (mensaje[0] == "$klan"):
-            await mandar_mensaje('Esto es una pelota, esto es un pelotudo!!')
+            await mandar_mensaje('El mas kaka kaka del universo')
             await mandar_mensaje(
-                'https://i.ytimg.com/vi/4fEm0agWpXA/maxresdefault.jpg')
+                'https://media.discordapp.net/attachments/881890595747024937/881890655868178482/Klan_dios.png')
 
         elif (mensaje[0] == "$ricto"):
             await mandar_mensaje('Lo siento homie')
@@ -50,7 +49,7 @@ def evento(client):
 
         elif (mensaje[0] == "$help"):
             await mandar_mensaje(
-                'Te voy a dar una ayudita, puedes usarme con: \n```▁ ▂ ▄ ▅ ▆ ▇ █ 𝕃𝕀𝕊𝕋𝔸 𝔻𝔼 ℂ𝕆𝕄𝔸ℕ𝔻𝕆𝕊 █ ▇ ▆ ▅ ▄ ▂ ▁\n$tony\n$hater\n$klan ♥\n$ricto\n$autobardear\n$horario\n$sandi\n$celebrar\n$bardear\n$na```'
+                'Te voy a dar una ayudita, puedes usarme con: \n```▁ ▂ ▄ ▅ ▆ ▇ █ 𝕃𝕀𝕊𝕋𝔸 𝔻𝔼 ℂ𝕆𝕄𝔸ℕ𝔻𝕆𝕊 █ ▇ ▆ ▅ ▄ ▂ ▁\n$tony\n$hater\n$klan ♥\n$ricto\n$autobardear\n$horario\n$sandi\n$celebrar\n$bardear\n$na\n$na\n$go```'
             )
 
         elif (mensaje[0] == "$celebrar"):
@@ -83,3 +82,11 @@ def evento(client):
                 if cond_descripcion:
                     descripcion += i
             print(descripcion)
+
+        elif (mensaje[0] == "$go"):
+            #Ir a la carpeta Drive de la materia
+            canal_actual = message.channel
+            
+            url = Funciones.urlDriveLinker(str(canal_actual))
+
+            await mandar_mensaje(url)

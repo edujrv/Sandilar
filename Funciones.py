@@ -54,6 +54,11 @@ def recordatorio_constructor(frase):
     return frase_final
 
 
+
+
+
+
+
 def bardeo():
     file = open("insultos.txt")
 
@@ -65,6 +70,36 @@ def bardeo():
         palabras.append(line.replace('\n', ''))
 
     return palabras[random.randint(0, len(palabras) - 1)]
+
+
+
+
+
+
+def urlDriveLinker(canal_actual):
+    #Devolvera la url correspondiente
+    linker = {"redes-i":"https://drive.google.com/drive/folders/1S_9u3_qWH9nX5JB5WYbZIcgyqFtNJsT1",
+     "auditoria":"https://drive.google.com/drive/folders/1EsHvUGxkfPzXzw1xdT_ujZEQDerINIJG",
+     "pds-ii":"https://drive.google.com/drive/u/0/folders/1vi8Q7yHjc1fGg95ENiWCOLVM6Hy_5lMD",
+     "organizacion-de-empresas":"https://drive.google.com/drive/u/0/folders/1VwF5FGe1cWf5FJSJp9OzPBqy2UIQY9SU",
+     "desarrollo-de-herramientas-de-software":"https://drive.google.com/drive/u/0/folders/1tXO6Go3e5CbsJ7OoJhVv6JCI34tg6ZpV",
+     "derecho-y-etica-pro":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8qbOHYcguS9vGdg596WQJsScJiCMdR1wOG5fqjy_9VZqcZ3d_6mTh_mzgk3U8qIasjuk&usqp=CAU"
+  
+
+  #...
+    }
+    print("\n\n\n")
+    print(canal_actual)
+    print("\n\n\n")
+    print(linker.get(canal_actual))
+    print("\n\n\n")
+    
+    return linker.get(canal_actual)
+
+
+
+
+
 
 
 def get_agendado(frase):

@@ -1,7 +1,7 @@
 class Horario:
 
     horario = [[ [[]],"?","?" ]]
-    #           dias-materia-profe
+    #           dias-materia-profe  QUE ES ESTO???
     #           horas
 
 
