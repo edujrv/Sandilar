@@ -1,6 +1,9 @@
-import Funciones 
+import Funciones
+from discord.ext import commands
+import music
 
 def evento(client):
+   
    
     @client.event
     async def on_message(message):
@@ -56,6 +59,7 @@ def evento(client):
             await mandar_mensaje('¡¡A CELEBRAR!!')
             await mandar_mensaje('https://i.pinimg.com/originals/c9/ae/85/c9ae85b4431228f0d59e2ab9e4515378.gif')
 
+
         elif (mensaje[0] == "$bardear"):
             await mandar_mensaje(message.mentions[0].mention + " sos un " + Funciones.bardeo())
 
@@ -90,3 +94,5 @@ def evento(client):
             url = Funciones.urlDriveLinker(str(canal_actual))
 
             await mandar_mensaje(url)
+
+       
